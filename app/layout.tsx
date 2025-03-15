@@ -2,7 +2,6 @@ import type React from "react";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CategoryProvider } from "@/contexts/CategoryContext";
@@ -22,17 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-tech-dark-blue`}>
-        <ThemeProvider>
-          <CategoryProvider>
-            <Header />
-            {children}
-            <div className="bg-tech-darker-blue py-10 md:py-[60px]">
-              <div className="container mx-auto ">
-                <Footer />
-              </div>
+        <CategoryProvider>
+          <Header />
+          {children}
+          <div className="bg-tech-darker-blue py-10 md:py-[60px]">
+            <div className="container mx-auto ">
+              <Footer />
             </div>
-          </CategoryProvider>
-        </ThemeProvider>
+          </div>
+        </CategoryProvider>
       </body>
     </html>
   );
